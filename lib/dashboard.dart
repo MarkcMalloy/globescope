@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:globescope/Dashboard/SideMenu/components/side_menu_button.dart';
+import 'package:globescope/Dashboard/SideMenu/side_menu.dart';
 import 'package:globescope/config/size_config.dart';
 import 'package:globescope/style/colors.dart';
 
@@ -11,15 +13,15 @@ class Dashboard extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-                flex: 1,
-                child: dashboardSideMenu()),
+            Expanded(flex: 1, child: SideMenu()),
             Expanded(
                 flex: 10,
                 child: Container(
                   width: double.infinity,
                   height: SizeConfig.screenHeight,
+                  color: AppColors.secondaryBg,
                 )),
             Expanded(
                 flex: 4,
@@ -31,26 +33,6 @@ class Dashboard extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  Widget dashboardSideMenu(){
-    return Container(
-      width: double.infinity,
-      height: SizeConfig.screenHeight,
-      color: AppColors.secondary,
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              height: 100,
-              alignment: Alignment.topCenter,
-              padding: EdgeInsets.only(top: 20),
-              child: Center(child: SvgPicture.asset(assetName),),
-            )
-          ],
-        ),
-      );,
     );
   }
 }
